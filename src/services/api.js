@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const pharmacyInstance = axios.create({
-  baseURL: "http://localhost:3001/pharmacy",
+  /*Local url */
+  // baseURL: "http://localhost:3001/pharmacy",
+  /*Render url */
+  baseURL: "https://mediship.onrender.com/pharmacy",
 });
 
 export const fetchDrugsAll = async () => {
