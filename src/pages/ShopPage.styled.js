@@ -8,7 +8,7 @@ export const ShopPageStyled = styled.div`
     display: grid;
     justify-items: center;
     height: 700px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 30px;
     padding: 0 20px;
     overflow: auto;

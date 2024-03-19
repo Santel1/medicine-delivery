@@ -6,7 +6,7 @@ import { StyledNavigation } from "./Navigation.styled";
 const Navigation = () => {
   return (
     <StyledNavigation className="nav">
-      <a href="http://localhost:3000/medicine-delivery" className="logo">
+      <a href="https://santel1.github.io/medicine-delivery" className="logo">
         <img width={40} src={drugImg} alt="" />
         <p>Medicine delivery</p>
       </a>

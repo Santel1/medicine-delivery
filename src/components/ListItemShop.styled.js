@@ -26,6 +26,7 @@ export const ListItemStyle = styled.li`
     }
     &.added {
       background-color: #0077cc;
+      cursor: default;
     }
   }
 `;

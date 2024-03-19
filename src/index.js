@@ -20,7 +20,7 @@ root.render(
       <BrowserRouter basename="/medicine-delivery">
         <ToastContainer
           position="top-right"
-          autoClose={1000}
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
