@@ -16,6 +16,9 @@ const Navigation = () => {
       <NavLink className="headerLink" to="/cart">
         Cart
       </NavLink>
+      <NavLink className="headerLink" to="/history">
+        History
+      </NavLink>
     </StyledNavigation>
   );
 };

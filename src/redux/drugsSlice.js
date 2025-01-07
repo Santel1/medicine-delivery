@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { addToOrder, fetchDrugsAll } from "../services/api";
+import { addToOrder, fetchDrugsAll, fetchOrders } from "../services/api";
 
 export const requestDrugs = createAsyncThunk(
   "drugs/get",
@@ -26,8 +26,21 @@ export const addNewOrder = createAsyncThunk(
   }
 );
 
+export const requestOrders = createAsyncThunk(
+  "orders/get",
+  async (_, thunkApi) => {
+    try {
+      const ordersData = await fetchOrders();
+      return ordersData;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
 const INITIAL_STATE = {
   drugsData: [],
+  ordersData: [],
   cart: [],
   isLoading: false,
   error: null,
@@ -82,6 +95,18 @@ const drugsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(addNewOrder.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(requestOrders.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(requestOrders.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.ordersData.push(...action.payload.orders);
+      })
+      .addCase(requestOrders.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       }),

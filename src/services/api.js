@@ -17,3 +17,9 @@ export const addToOrder = async (orderData) => {
   const { data } = await pharmacyInstance.post(`/cart`, orderData);
   return data;
 };
+
+export const fetchOrders = async () => {
+  const { data } = await pharmacyInstance.get(`/orders`);
+
+  return data;
+};
